@@ -19,6 +19,17 @@ public class Basket : MonoBehaviour
         Vector3 pos = this.transform.position;
         pos.x = mousePos3D.x;
         this.transform.position = pos;
-        
+
+
+    }
+
+    //Catching Apples
+    void OnCollisionEnter(Collision coll) 
+    {
+        GameObject collidedWith = coll.gameObject;
+        if (collidedWith.tag == "Apple") {
+            Destroy(collidedWith);
+        }
     }
 }
+
