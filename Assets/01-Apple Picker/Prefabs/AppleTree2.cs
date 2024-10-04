@@ -8,7 +8,7 @@ public class AppleTree : MonoBehaviour {
 
     public GameObject applePrefab;
 
-    public float speed = 10;
+    public float speed = 1f;
 
     public float leftAndRightEdge = 20f;
 
@@ -38,9 +38,13 @@ public class AppleTree : MonoBehaviour {
             speed = Mathf.Abs(speed);
         } else if (pos.x > leftAndRightEdge) {
             speed = -Mathf.Abs(speed);
-        } else if (Random.value < chanceToChangeDirections) {
-            speed *= -1;
+        } 
         }
+
+    void FixedUpdate() {
+        if (Random.value < chanceToChangeDirections) {
+            speed *= -1;
+    }
     }
 
 
